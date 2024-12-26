@@ -67,7 +67,7 @@ module "vpn_sg" {
     sg_name = var.vpn_sg_name
     vpc_id = local.vpc_id
     common_tags = var.common_tags
-    sg_tags = var.app_vpn_tags
+    sg_tags = var.vpn_sg_tags
 }
 
 resource "aws_security_group_rule" "mysql_backend" {
