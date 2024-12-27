@@ -32,7 +32,7 @@ resource "null_resource" "backend" {
   }
 
   provisioner "file" {
-    source      = "${var.backend_tags.Component}.sh"
+    source      = "${var.backend_tags.component}.sh"
     destination = "/tmp/backend.sh"
   }
 
@@ -40,7 +40,7 @@ resource "null_resource" "backend" {
     # Bootstrap script called with private_ip of each node in the cluster
     inline = [
       "chmod +x /tmp/backend.sh",
-      "sudo sh /tmp/backend.sh ${var.backend_tags.Component} ${var.environment}"
+      "sudo sh /tmp/backend.sh ${var.backend_tags.component} ${var.environment}"
     ]
   }
 
@@ -175,7 +175,7 @@ resource "aws_lb_listener_rule" "backend" {
   condition {
     #host based routing
     host_header {
-      values = ["${var.backend_tags.Component}.app-${var.environment}.${var.zone_name}"]
+      values = ["${var.backend_tags.component}.app-${var.environment}.${var.zone_name}"]
     }
   }
 }
