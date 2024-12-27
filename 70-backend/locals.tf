@@ -1,5 +1,5 @@
 locals {
-  resource_name = "${var.project}-${var.environment}-backend"
+  resource_name = "${var.project}-${var.env}-backend"
   backend_sg_id = data.aws_ssm_parameter.backend_sg_id.value
   private_subnet_id = split(",", data.aws_ssm_parameter.private_subnets_id.value)[0]
   vpc_id = data.aws_ssm_parameter.vpc_id.value
