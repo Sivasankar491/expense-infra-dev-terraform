@@ -173,6 +173,7 @@ resource "aws_lb_listener_rule" "backend" {
   }
 
   condition {
+    #host based routing
     host_header {
       values = ["${var.backend_tags.Component}.app-${var.environment}.${var.zone_name}"]
     }
