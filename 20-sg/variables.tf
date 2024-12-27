@@ -30,6 +30,10 @@ variable "app_alb_sg_name" {
     default = "app_alb"
 }
 
+variable "web_alb_sg_name" {
+    default = "wend_alb"
+}
+
 variable "vpn_sg_name" {
     default = "vpn"
 }
@@ -85,5 +89,12 @@ variable "vpn_sg_tags" {
     type = map
     default = {
         component = "vpn"
+    }
+}
+
+variable "web_alb_sg_tags" {
+    type = map
+    default = {
+        component = "web_alb"
     }
 }
